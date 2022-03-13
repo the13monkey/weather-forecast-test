@@ -59,7 +59,7 @@ app.get('/weather', (req, res) => {
             })
         }
 
-        forecast(latitude, longitude, (err, {description, degree, feellike}) => {
+        forecast(latitude, longitude, (err, {description, degree, feellike, humidity}) => {
 
             if (err) {
                 return res.send({
@@ -67,7 +67,7 @@ app.get('/weather', (req, res) => {
                 })
             }
 
-            const forecastData = `The weather forcast for ${location} is ${description}. It is currently ${degree} degrees out. It feels like ${feellike} degrees out.`
+            const forecastData = `The weather forcast for ${location} is ${description}. It is currently ${degree} degrees out. It feels like ${feellike} degrees out. The humidity is ${humidity}%.`
 
             res.send({
                 forecast: forecastData,

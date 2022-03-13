@@ -9,7 +9,8 @@ const forecast = (lat, long, callback) => {
             callback(undefined, {
                 degree: body.current.temperature,
                 feellike: body.current.feelslike,
-                description: body.current.weather_descriptions[0]
+                description: body.current.weather_descriptions[0],
+                humidity: body.current.humidity 
             })
         } else {
             callback('Unable to connect to forecast service', undefined)
